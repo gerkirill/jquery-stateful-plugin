@@ -1,0 +1,30 @@
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="concept.js"></script>
+
+<div id="container">Hello</div>
+<div id="container2">Hello</div>
+<script>
+
+$('#container').motion({color: 'red'})
+    .motion('on', 'start', function(data) {
+        console.log('on start handler');
+        console.log(data);
+    })
+    .motion('on', 'stop', function(data) {
+        console.log('on stop handler');
+        console.log(data);
+    })
+    .motion('start', 'right now!', 'just because');
+    
+$('#container').data('motion').stop(); //or
+$('#container').motion('stop');
+
+$('#container2').motion({
+    color: 'green',
+    // you may also pass event handlers along with options
+    onstop: function(data) {
+        console.log('container2 stopped');
+    }
+})
+.motion('stop');
+</script>
