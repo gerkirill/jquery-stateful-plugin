@@ -28,3 +28,36 @@ For each slider at the page you may want to:
 
 Actually some of this goals are achievable in some ad hoc way as well. E.g. you may store currently shown
 image number into some data- attribute of slider container, etc. But I will show you better way.
+Look briefly at the code below. I gives you all the points mentioned above.
+
+    DefinePlugin('slider', function(self) {
+        var $images;
+        var visibleImageIndex = 0;
+        var paused = false;
+
+        function showNext() {
+            $($images[visibleImageIndex]).hide();
+            if (++visibleImageIndex = $images.length) visibleImageIndex = 0;
+            $($images[visibleImageIndex]).show();
+        }
+
+        return {
+            defaultOptions: {
+                interval: 200
+            },
+            init: function() {
+                $images = $(self.htmlElement).find('img');
+                $images.hide();
+                window.setInterval(function(){                    
+                    !paused && showNext();
+                }, self.options.interval);
+            },
+            // public commands
+            resume: function() {
+                paused = false;
+            },
+            stop: function() {
+                paused = true;
+            }
+        };
+    });
