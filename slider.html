@@ -1,0 +1,15 @@
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="slider.js"></script>
+
+<div class="slider">Hello</div>
+
+<script>
+$('.slider')
+    .slider({interval: 500})
+    .slider('on', 'slide', function(data) {
+        console.log('on slide handler');
+        console.log(data);
+    });
+$('.slider').data('slider').stop(); //or $('.slider').slider('stop');
+$('.slider').slider('resume');
+</script>

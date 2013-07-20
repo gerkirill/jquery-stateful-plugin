@@ -62,3 +62,34 @@ Look briefly at the code below. I gives you all the points mentioned above.
             }
         };
     });
+
+That's all. You can now use it like that:
+
+    $('.slider')
+        .slider({interval: 500})
+        .slider('on', 'slide', function(data) {
+            console.log('on slide handler');
+            console.log(data);
+        });
+    $('.slider').data('slider').stop(); //or $('.slider').slider('stop');
+    $('.slider').slider('resume');
+
+
+Library usage
+=============
+
+Here is how your plugin file content should look like:
+
+    ;(function($, window, undefined) {
+
+        // you can define your plugin at the top of the file
+        DefinePlugin(...)
+
+        ////////////////////////////////////////////////////////////////////////////////
+        /// Below is the code of the stateful plugins framework, not the plugin itself /
+        ////////////////////////////////////////////////////////////////////////////////
+        function Plugin(name) {
+            ...
+        function DefinePlugin(name, definingFunction) {
+            ...
+    }(jQuery, window));
