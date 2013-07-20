@@ -95,3 +95,9 @@ Here is how your plugin file content should look like:
     }(jQuery, window));
 
 For now you can grab library code from concept.js file.
+
+Known alternatives:
+    
+https://github.com/gfranko/jq-boilerplate
+
+http://api.jqueryui.com/jQuery.widget/
