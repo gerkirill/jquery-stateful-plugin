@@ -12,7 +12,7 @@ For example - let's look at the jQuery plugin which makes a few html elements ha
         jQuery(this).height(maxHeight);
     }
 
-Being called e.g. like shown below, this little syngie just does its job.
+Being called e.g. like shown below, this little thingie just does its job.
 
     jQuery('.teaserbox li').equalHeight();
 
@@ -39,6 +39,7 @@ Look briefly at the code below. I gives you all the points mentioned above.
             $($images[visibleImageIndex]).hide();
             if (++visibleImageIndex = $images.length) visibleImageIndex = 0;
             $($images[visibleImageIndex]).show();
+            self.trigger('slide', {image_index: visibleImageIndex});
         }
 
         return {

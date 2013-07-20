@@ -10,6 +10,7 @@
             $($images[visibleImageIndex]).hide();
             if (++visibleImageIndex = $images.length) visibleImageIndex = 0;
             $($images[visibleImageIndex]).show();
+            self.trigger('slide', {image_index: visibleImageIndex});
         }
 
         return {
