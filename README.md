@@ -93,3 +93,5 @@ Here is how your plugin file content should look like:
         function DefinePlugin(name, definingFunction) {
             ...
     }(jQuery, window));
+
+For now you can grab library code from concept.js file.
