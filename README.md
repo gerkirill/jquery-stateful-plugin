@@ -1,4 +1,4 @@
-Small framework for creating stateful jQuery plugins
+Small embeddable library for creating stateful jQuery plugins
 ====================================================
 
 Sometimes jQuery plugins just do not need to store any state information.
