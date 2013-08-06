@@ -15,6 +15,7 @@ http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to
 ## What does this library do for you?
 
  + makes plugin functionality definition clean
+ + provides a solution for context-dependent value of `this` keyword (e.g. in callback functions)
  + provides you with separate context for each HTML element you plugin was applied to
  + automatically registers you plugin with jQuery
  + makes calls to plugin chainable
