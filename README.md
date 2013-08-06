@@ -101,3 +101,45 @@ Known alternatives:
 https://github.com/gfranko/jq-boilerplate
 
 http://api.jqueryui.com/jQuery.widget/
+
+
+API for plugin development
+==========================
+
+## Properties
+
+### you may access:
+
+ + self.options - array of plugin options
+ + self.htmlElement - an HTML element current plugin instance is bint to
+
+### you may define:
+
+ + defaultOptions - These values will be used as a defaults for all plugin instances.
+
+## Methods
+
+### you may invoke:
+
+ + self.trigger(eventNane, eventData) - triggers a named event external code may subscribe to.
+
+### you may define:
+
+ + init() - this method will be called when the pligin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
+
+ + <anything>() - any method returned by the defining function can be invoked during plugin usage like this: 
+
+        jQuery('<selector>').<plugin>('<method>'[,param1, param2, ...]);
+        // e.g.
+        jQuery('#container').slider('pause', 10, 'seconds');
+
+
+
+ API available for plugin users
+===============================
+
+ + jQuery('<selector>').<plugin>([<options>]); - creates plugin instance for each element matched by the selector and calls init() method.
+
+ + jQuery('<selector>').<plugin>('<command>'[,<argument1>, <argument2>]); - invokes some plugin API method.
+
+ + jQuery('<selector>').<plugin>('on', '<event>', function(data){...}); - register handler for some plugin event.
