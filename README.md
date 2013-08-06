@@ -80,7 +80,7 @@ Library is designed to be copy-pasted into your plugin file. Here is how your pl
             ...
     }(jQuery, window));
 
-For now you can grab library code from concept.js file.
+For now you can grab library code from [concept.js](https://raw.github.com/gerkirill/jquery-stateful-plugin/master/concept.js) file.
 
 Use case
 --------
