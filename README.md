@@ -4,6 +4,8 @@ Small embeddable library for creating stateful jQuery plugins
 > ###What is a stateful plugin?
 > A stateful plugin is an advanced type of jQuery plugin that is self-aware — it maintains its own state, and often provides an external interface for outside code to interact with and alter the plugins state. Stateful plugins, or widgets as they are often called, often trigger events and provide callback hooks into important parts of their functionality.
 
+> Taken from [MSDN Magazine](http://msdn.microsoft.com/en-us/magazine/ff706600.aspx)
+
 **Known alternatives:**
     
 https://github.com/gfranko/jq-boilerplate - have no clear separation between biolerplate code and code of your plugin.
