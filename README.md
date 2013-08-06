@@ -1,5 +1,5 @@
 Small embeddable library for creating stateful jQuery plugins
-====================================================
+=============================================================
 
 > ###What is a stateful plugin?
 > A stateful plugin is an advanced type of jQuery plugin that is self-aware — it maintains its own state, and often provides an external interface for outside code to interact with and alter the plugins state. Stateful plugins, or widgets as they are often called, often trigger events and provide callback hooks into important parts of their functionality.
@@ -22,26 +22,26 @@ http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to
  + provides solid interface for invoking plugin methods, changing settings and subscribing to plugin events
 
 API for plugin development
-==========================
+---------------------------
 
-## Properties
+### Properties
 
-### you may access:
+#### you may access:
 
  + `self.options` - array of plugin options
  + `self.htmlElement` - an HTML element current plugin instance is bint to
 
-### you may define:
+#### you may define:
 
  + `defaultOptions` - These values will be used as a defaults for all plugin instances.
 
-## Methods
+### Methods
 
-### you may invoke:
+#### you may invoke:
 
  + `self.trigger(eventName, eventData)` - triggers a named event external code may subscribe to.
 
-### you may define:
+#### you may define:
 
  +  `init()` - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
 
@@ -53,8 +53,8 @@ API for plugin development
 
 
 
- API available for plugin users
-===============================
+API available for plugin users
+------------------------------
 
  + `jQuery('<selector>').<plugin>([<options>])` - creates plugin instance for each element matched by the selector and calls init() method.
 
@@ -63,7 +63,7 @@ API for plugin development
  + `jQuery('<selector>').<plugin>('on', '<event>', function(data){...})` - registers handler for some plugin event.
 
 Library usage
-=============
+--------------
 Library is designed to be copy-pasted into your plugin file. Here is how your plugin file content should look like:
 
     ;(function($, window, undefined) {
@@ -83,7 +83,7 @@ Library is designed to be copy-pasted into your plugin file. Here is how your pl
 For now you can grab library code from concept.js file.
 
 Use case
-=========
+--------
 
 For the case when state managament is required for jQuery plugin - let's take e.g. simple slider as an example.
 
