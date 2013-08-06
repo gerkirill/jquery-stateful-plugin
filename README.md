@@ -85,9 +85,9 @@ For now you can grab library code from concept.js file.
 
 Known alternatives:
     
-https://github.com/gfranko/jq-boilerplate
+https://github.com/gfranko/jq-boilerplate - have no clear separation between biolerplate code and code of your plugin.
 
-http://api.jqueryui.com/jQuery.widget/
+http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to your plugin.
 
 
 API for plugin development
