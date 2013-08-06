@@ -21,6 +21,70 @@ http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to
  + makes calls to plugin chainable
  + provides solid interface for invoking plugin methods, changing settings and subscribing to plugin events
 
+API for plugin development
+==========================
+
+## Properties
+
+### you may access:
+
+ + `self.options` - array of plugin options
+ + `self.htmlElement` - an HTML element current plugin instance is bint to
+
+### you may define:
+
+ + `defaultOptions` - These values will be used as a defaults for all plugin instances.
+
+## Methods
+
+### you may invoke:
+
+ + `self.trigger(eventName, eventData)` - triggers a named event external code may subscribe to.
+
+### you may define:
+
+ +  `init()` - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
+
+ + `<anything>()` - any method returned by the defining function can be invoked during plugin usage like this: 
+        
+        jQuery('<selector>').<plugin>('<method>'[,param1, param2, ...]);
+        // e.g.
+        jQuery('#container').slider('pause', 10, 'seconds');
+
+
+
+ API available for plugin users
+===============================
+
+ + `jQuery('<selector>').<plugin>([<options>])` - creates plugin instance for each element matched by the selector and calls init() method.
+
+ + `jQuery('<selector>').<plugin>('<command>'[,<argument1>, <argument2>])` - invokes some plugin API method.
+
+ + `jQuery('<selector>').<plugin>('on', '<event>', function(data){...})` - registers handler for some plugin event.
+
+Library usage
+=============
+Library is designed to be copy-pasted into your plugin file. Here is how your plugin file content should look like:
+
+    ;(function($, window, undefined) {
+
+        // you can define your plugin at the top of the file
+        DefinePlugin(...)
+
+        ////////////////////////////////////////////////////////////////////////////////
+        /// Below is the code of the stateful plugins framework, not the plugin itself /
+        ////////////////////////////////////////////////////////////////////////////////
+        function Plugin(name) {
+            ...
+        function DefinePlugin(name, definingFunction) {
+            ...
+    }(jQuery, window));
+
+For now you can grab library code from concept.js file.
+
+Use case
+=========
+
 For the case when state managament is required for jQuery plugin - let's take e.g. simple slider as an example.
 
 For each slider at the page you may want to:
@@ -77,66 +141,3 @@ That's all. You can now use it like that:
         });
     $('.slider').data('slider').stop(); //or $('.slider').slider('stop');
     $('.slider').slider('resume');
-
-
-Library usage
-=============
-Library is designed to be copy-pasted into your plugin file. Here is how your plugin file content should look like:
-
-    ;(function($, window, undefined) {
-
-        // you can define your plugin at the top of the file
-        DefinePlugin(...)
-
-        ////////////////////////////////////////////////////////////////////////////////
-        /// Below is the code of the stateful plugins framework, not the plugin itself /
-        ////////////////////////////////////////////////////////////////////////////////
-        function Plugin(name) {
-            ...
-        function DefinePlugin(name, definingFunction) {
-            ...
-    }(jQuery, window));
-
-For now you can grab library code from concept.js file.
-
-
-API for plugin development
-==========================
-
-## Properties
-
-### you may access:
-
- + `self.options` - array of plugin options
- + `self.htmlElement` - an HTML element current plugin instance is bint to
-
-### you may define:
-
- + `defaultOptions` - These values will be used as a defaults for all plugin instances.
-
-## Methods
-
-### you may invoke:
-
- + `self.trigger(eventName, eventData)` - triggers a named event external code may subscribe to.
-
-### you may define:
-
- +  `init()` - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
-
- + `<anything>()` - any method returned by the defining function can be invoked during plugin usage like this: 
-        
-        jQuery('<selector>').<plugin>('<method>'[,param1, param2, ...]);
-        // e.g.
-        jQuery('#container').slider('pause', 10, 'seconds');
-
-
-
- API available for plugin users
-===============================
-
- + `jQuery('<selector>').<plugin>([<options>])` - creates plugin instance for each element matched by the selector and calls init() method.
-
- + `jQuery('<selector>').<plugin>('<command>'[,<argument1>, <argument2>])` - invokes some plugin API method.
-
- + `jQuery('<selector>').<plugin>('on', '<event>', function(data){...})` - registers handler for some plugin event.
