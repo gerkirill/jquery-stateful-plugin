@@ -70,8 +70,7 @@ That's all. You can now use it like that:
 
 Library usage
 =============
-
-Here is how your plugin file content should look like:
+Library is designed to be copy-pasted into your plugin file. Here is how your plugin file content should look like:
 
     ;(function($, window, undefined) {
 
