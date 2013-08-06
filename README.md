@@ -121,11 +121,12 @@ API for plugin development
 
 ### you may invoke:
 
- + self.trigger(eventNane, eventData) - triggers a named event external code may subscribe to.
+ + self.trigger(eventName, eventData) - triggers a named event external code may subscribe to.
 
 ### you may define:
 
- + init() - this method will be called when the pligin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
+ +      init() 
+ - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
 
  + <anything>() - any method returned by the defining function can be invoked during plugin usage like this: 
 
