@@ -4,7 +4,13 @@ Small embeddable library for creating stateful jQuery plugins
 > ###What is a stateful plugin?
 > A stateful plugin is an advanced type of jQuery plugin that is self-aware — it maintains its own state, and often provides an external interface for outside code to interact with and alter the plugins state. Stateful plugins, or widgets as they are often called, often trigger events and provide callback hooks into important parts of their functionality.
 
-For the case when state menegament is required for jQuery plugin - let's take e.g. simple slider as an example.
+**Known alternatives:**
+    
+https://github.com/gfranko/jq-boilerplate - have no clear separation between biolerplate code and code of your plugin.
+
+http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to your plugin.
+
+For the case when state managament is required for jQuery plugin - let's take e.g. simple slider as an example.
 
 For each slider at the page you may want to:
 
@@ -82,12 +88,6 @@ Here is how your plugin file content should look like:
     }(jQuery, window));
 
 For now you can grab library code from concept.js file.
-
-Known alternatives:
-    
-https://github.com/gfranko/jq-boilerplate - have no clear separation between biolerplate code and code of your plugin.
-
-http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to your plugin.
 
 
 API for plugin development
