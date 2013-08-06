@@ -12,6 +12,14 @@ https://github.com/gfranko/jq-boilerplate - have no clear separation between bio
 
 http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to your plugin.
 
+## What does this library do for you?
+
+ + makes plugin functionality definition clean
+ + provides you with separate context for each HTML element you plugin was applied to
+ + automatically registers you plugin with jQuery
+ + makes calls to plugin chainable
+ + provides solid interface for invoking plugin methods, changing settings and subscribing to plugin events
+
 For the case when state managament is required for jQuery plugin - let's take e.g. simple slider as an example.
 
 For each slider at the page you may want to:
