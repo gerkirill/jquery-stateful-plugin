@@ -110,26 +110,25 @@ API for plugin development
 
 ### you may access:
 
- + self.options - array of plugin options
- + self.htmlElement - an HTML element current plugin instance is bint to
+ + `self.options` - array of plugin options
+ + `self.htmlElement` - an HTML element current plugin instance is bint to
 
 ### you may define:
 
- + defaultOptions - These values will be used as a defaults for all plugin instances.
+ + `defaultOptions` - These values will be used as a defaults for all plugin instances.
 
 ## Methods
 
 ### you may invoke:
 
- + self.trigger(eventName, eventData) - triggers a named event external code may subscribe to.
+ + `self.trigger(eventName, eventData)` - triggers a named event external code may subscribe to.
 
 ### you may define:
 
- +      init() 
- - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
+ +  `init()` - this method will be called when the plugin instance is created for some HTML element matched by the jQuery selector. At this point self.htmlElement is already set, as most likely you'll want to use it.
 
- + <anything>() - any method returned by the defining function can be invoked during plugin usage like this: 
-
+ + `<anything>()` - any method returned by the defining function can be invoked during plugin usage like this: 
+        
         jQuery('<selector>').<plugin>('<method>'[,param1, param2, ...]);
         // e.g.
         jQuery('#container').slider('pause', 10, 'seconds');
@@ -139,8 +138,8 @@ API for plugin development
  API available for plugin users
 ===============================
 
- + jQuery('<selector>').<plugin>([<options>]); - creates plugin instance for each element matched by the selector and calls init() method.
+ + `jQuery('<selector>').<plugin>([<options>])` - creates plugin instance for each element matched by the selector and calls init() method.
 
- + jQuery('<selector>').<plugin>('<command>'[,<argument1>, <argument2>]); - invokes some plugin API method.
+ + `jQuery('<selector>').<plugin>('<command>'[,<argument1>, <argument2>])` - invokes some plugin API method.
 
- + jQuery('<selector>').<plugin>('on', '<event>', function(data){...}); - register handler for some plugin event.
+ + `jQuery('<selector>').<plugin>('on', '<event>', function(data){...})` - registers handler for some plugin event.
