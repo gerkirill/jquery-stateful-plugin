@@ -21,6 +21,10 @@ http://api.jqueryui.com/jQuery.widget/ - adds external dependency (jQuery UI) to
  + makes calls to plugin chainable
  + provides solid interface for invoking plugin methods, changing settings and subscribing to plugin events
 
+## License
+
+This projected is licensed under the terms of the MIT license
+
 API for plugin development
 ---------------------------
 
